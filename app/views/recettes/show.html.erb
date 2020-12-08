@@ -1,0 +1,9 @@
+<h1>Mes Recettes</h1>
+<% @recettes.each do |recette| %>
+    <h2> <%= recette.titre %> </h2>
+    <b>Étapes:</b> <%= recette.etapes %> <br />
+    <b>Ingrédients:</b> 
+    <% recette.ingredients.each do |i| %> 
+        <%= i.recette_ingredients[0].quantite.to_s + i.recette_ingredients[0].unite + i.nom  + ", " %>
+    <% end %>
+<% end %>

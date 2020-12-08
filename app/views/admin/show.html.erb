@@ -1,0 +1,16 @@
+<h1>Admin Recettes</h1>
+<b>Liste des Recettes: </b> <br />
+<ul>
+    <% @users.each do |user| %>
+        <li>
+             <%= user.nom + " " + user.prenom%><br />
+        </li>
+        <ul>
+            <% user.recettes.each do |user_recette|%>
+                <li>
+                    <%= link_to  user_recette.titre, "/admin/recettes/#{user_recette.id}/Xoox" %><br />
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+</ul>
