@@ -10,16 +10,22 @@
   </head>
 
   <body>
+  
 <% if user_signed_in? %>
-        <%= link_to 'Acceuil', '/' %>
+    <%= link_to 'Acceuil', '/' %>
     <%= link_to 'Mes recettes', '/mesrecettes' %>
     <%= link_to 'Controller Administration (POUR TEST)', '/admin/recettes/:is_admin' %>
-    <%= link_to 'logout', destroy_user_session_path, method: "delete" %>
+    <%= link_to 'logout', destroy_user_session_path, method: "delete"%>
 
 <% else %>
     <%= link_to 'login', new_user_session_path %>
 <% end %>
+
 <hr />
+
+<!-- Sidebar (hidden by default) -->
+
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
     <%= yield %>

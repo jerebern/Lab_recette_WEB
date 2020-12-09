@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_09_22_143553) do
     t.bigint "user_id"
     t.string "titre"
     t.text "etapes"
+    t.string "img", default: "food.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recettes_on_user_id"

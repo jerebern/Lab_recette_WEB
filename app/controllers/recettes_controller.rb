@@ -11,4 +11,12 @@ class RecettesController < ApplicationController
 
         end
     end
+    def test
+        respond_to do |format|
+            format.html{render 'recettes/test'}
+        end
+    end
+    def new
+        @recette = Recette.new
+    end
 end

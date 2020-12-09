@@ -5,6 +5,7 @@ class CreateRecettes < ActiveRecord::Migration[5.2]
       
       t.string :titre
       t.text :etapes
+      t.string :img, default:"food.jpg"
 
       t.timestamps
     end
