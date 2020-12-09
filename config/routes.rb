@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root to:"acceuil#acceuil"
   get '/mesrecettes', to: 'recettes#show'
   namespace :admin do
-
     get '/recettes/:is_admin', to: 'user#show'
     get '/recettes/:id/:is_admin', to: 'recette#recette'
   end

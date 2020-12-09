@@ -1,7 +1,7 @@
 #Jeremy Bernard 18/11/2020
 
 class Admin::RecetteController < AdminController
-    before_action :get_recette_id
+    before_action :get_recettes_id
 
     def recette
         respond_to do |format|

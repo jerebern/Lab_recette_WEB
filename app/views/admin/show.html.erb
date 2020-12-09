@@ -8,7 +8,7 @@
         <ul>
             <% user.recettes.each do |user_recette|%>
                 <li>
-                    <%= link_to  user_recette.titre, "/admin/recettes/#{user_recette.id}/Xoox" %><br />
+                    <%= link_to  user_recette.titre, "/admin/recettes/#{user_recette.id}/is_admin" %><br />
                 </li>
             <% end %>
         </ul>
