@@ -1,3 +1,5 @@
+#<!--Jérémy Bernard 08/12/2020-->
+
 # frozen_string_literal: true
 
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]

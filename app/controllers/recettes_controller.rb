@@ -1,5 +1,4 @@
 #Jeremy Bernard 18/11/2020
-
 class RecettesController < ApplicationController
     before_action :authenticate_user!, :get_recettes
 
