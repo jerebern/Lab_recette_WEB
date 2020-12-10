@@ -1,13 +1,13 @@
 <%= form_for(@recette, method: "post") do |r| %>
-  <%= r.label(:title) %>
-  <%= @post.errors[:title].join('<br />') %>
+  <%= r.label(:titre) %>
+  <%= @recette.errors[:titre].join('<br />') %>
   <br/>
-  <%= f.text_field(:title) %>
+  <%= r.text_field(:titre) %>
   <br />
-  <%= f.label(:body) %>
-  <%= @post.errors[:body].join('<br />') %>
+  <%= r.label(:etapes) %>
+  <%= @recette.errors[:etapes].join('<br />') %>
   <br/>
-  <%= f.text_area(:body, rows: 20, cols:100) %>
+  <%= r.text_area(:etapes, rows: 20, cols:100) %>
   <br />
   <%= submit_tag("Ajouter") %>
 <% end %>
