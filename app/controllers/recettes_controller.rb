@@ -34,7 +34,7 @@ class RecettesController < ApplicationController
         @recette = current_user.recettes.new(recette_params)
         respond_to do |format|    
           if @recette.save # Si la sauvegarde se passe bien, on redirige vers l'action index_5 pour rafraichir le formulaire
-            format.html {redirect_to '/mesrecettes'}
+            format.html {redirect_to '/recettes/index'}
           else
             format.html {redirect_to '/recettes/new' } # Si une erreur arrive, on l'affiche sur le formulaire d'origine
           end
@@ -53,7 +53,7 @@ class RecettesController < ApplicationController
         
         respond_to do |format|    
           if @recette.update(recette_params) # Si la sauvegarde se passe bien, on redirige vers l'action index_5 pour rafraichir le formulaire
-            format.html {redirect_to '/mesrecettes'}
+            format.html {redirect_to '/recettes/index'}
           else
             format.html {redirect_to '/recettes/edit' } # Si une erreur arrive, on l'affiche sur le formulaire d'origine
           end
