@@ -20,6 +20,7 @@ class RecettesController < ApplicationController
 
     def new
         @recette = Recette.new
+        @ingredients = Ingredient.all 
     end
 
     def create
@@ -28,7 +29,6 @@ class RecettesController < ApplicationController
         #post_params = params.require(:post).permit(:title, :body)
 
         @recette = current_user.recettes.new(recette_params)
-        
         respond_to do |format|    
           if @recette.save # Si la sauvegarde se passe bien, on redirige vers l'action index_5 pour rafraichir le formulaire
             format.html {redirect_to '/mesrecettes'}
@@ -38,6 +38,25 @@ class RecettesController < ApplicationController
           # Si utilisation en javascript
           format.json { render :json => @recette.to_json }
           format.xml { render :xml => @recette.as_json.to_xml }
+        end
+    end
+
+    def update
+        # Securite lors d'une assignation de masse, on filtre les paramètres authoriser avant de les envoyer au modèle qui gère la base de données
+        # Voir fonction privé de ce controlleur
+        #post_params = params.require(:post).permit(:title, :body)
+
+        @recette = current_user.recette.find(params[:id])        
+        
+        respond_to do |format|    
+          if @post.update(recette_params) # Si la sauvegarde se passe bien, on redirige vers l'action index_5 pour rafraichir le formulaire
+            format.html {redirect_to '/mesrecettes'}
+          else
+            format.html {redirect_to '/recettes/edit' } # Si une erreur arrive, on l'affiche sur le formulaire d'origine
+          end
+          # Si utilisation en javascript
+          format.json { render :json => @post.to_json }
+          format.xml { render :xml => @post.as_json.to_xml }
         end
     end
 

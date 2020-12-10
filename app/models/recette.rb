@@ -6,12 +6,12 @@ class Recette < ApplicationRecord
 
   # Validations
   validates :titre, :etapes, presence: true
-  validate :valide_min_ingredient # une recette doit avoir au moins deux ingrédients
+  #validate :valide_min_ingredient # une recette doit avoir au moins deux ingrédients fixe rapide 
 
   # Fonctionnalité privé au modèle
   private
   def valide_min_ingredient
-    if self.recette_ingredients.size < 2
+    if self.recette_ingredients.size < 1
       errors.add(:recette_ingredients, "need at least 2 items in a recipe")
     end
   end

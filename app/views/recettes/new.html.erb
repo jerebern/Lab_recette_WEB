@@ -1,3 +1,4 @@
+
 <%= form_for(@recette, method: "post") do |r| %>
   <%= r.label(:titre) %>
   <%= @recette.errors[:titre].join('<br />') %>
@@ -8,6 +9,14 @@
   <%= @recette.errors[:etapes].join('<br />') %>
   <br/>
   <%= r.text_area(:etapes, rows: 20, cols:100) %>
-  <br />
+  <br/>
+   <%= r.label("Ingredients :") %>
+  <br/>
+
+  <% options = options_from_collection_for_select(@ingredients, 'id', 'nom') %>
+  <%= r.select :'1',
+        options,
+      selected:@select %>
+  <br /> 
   <%= submit_tag("Ajouter") %>
 <% end %>
