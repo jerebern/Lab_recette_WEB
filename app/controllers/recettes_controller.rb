@@ -17,6 +17,9 @@ class RecettesController < ApplicationController
         end
     end
 
+    def edit
+        @recette = current_user.recettes.find(params[:id])
+    end
 
     def new
         @recette = Recette.new
@@ -46,17 +49,17 @@ class RecettesController < ApplicationController
         # Voir fonction privé de ce controlleur
         #post_params = params.require(:post).permit(:title, :body)
 
-        @recette = current_user.recette.find(params[:id])        
+        @recette = current_user.recettes.find(params[:id])        
         
         respond_to do |format|    
-          if @post.update(recette_params) # Si la sauvegarde se passe bien, on redirige vers l'action index_5 pour rafraichir le formulaire
+          if @recette.update(recette_params) # Si la sauvegarde se passe bien, on redirige vers l'action index_5 pour rafraichir le formulaire
             format.html {redirect_to '/mesrecettes'}
           else
             format.html {redirect_to '/recettes/edit' } # Si une erreur arrive, on l'affiche sur le formulaire d'origine
           end
           # Si utilisation en javascript
-          format.json { render :json => @post.to_json }
-          format.xml { render :xml => @post.as_json.to_xml }
+          format.json { render :json => @recette.to_json }
+          format.xml { render :xml => @recette.as_json.to_xml }
         end
     end
 
