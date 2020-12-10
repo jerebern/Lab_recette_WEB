@@ -19,13 +19,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   </head>
 
   <body>
-
-<% if user_signed_in? %>
  <div class="w3-top">
  <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
- </div>
+  </div>
  <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
-  <a href="/" onclick="w3_close()" class="w3-bar-item w3-button">Mes Recettes</a>
+
+<% if user_signed_in? %>
+  <a href="/" onclick="w3_close()" class="w3-bar-item w3-button">Toutes les recettes</a>
   <a href="/recettes/index" onclick="w3_close()" class="w3-bar-item w3-button">Gerer mes recettes</a>
   <a href="/recettes/new" onclick="w3_close()" class="w3-bar-item w3-button">Ajout une recette</a>
   <%= link_to 'Se deconnecter', destroy_user_session_path, method: "delete", class: "w3-bar-item w3-button" %> 
@@ -33,8 +33,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
    <%= link_to 'Controller Administration', '/admin/recettes/:is_admin' , class: "w3-bar-item w3-button" %>
   <% end %>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button"> Fermer le menu</a>
-</nav>
+<% else %>
+  <%= link_to 'Se connecter', new_user_session_path, method: "POST", class: "w3-bar-item w3-button" %> 
 <% end %>
+
+</nav>
 
 
 <p class="notice"><%= notice %></p>
